@@ -1,0 +1,378 @@
+/* --- global style ---*/
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap');
+
+/* --- CSS--- */
+html{
+    overflow:scroll;
+    overflow-x:hidden;
+    }
+::-webkit-scrollbar{
+        width:2px;
+        color: var(--color-1);
+    }
+:root{
+    --main-color:#202224;
+    --color-1: #e91e63;
+    --color-2: #c9510c;
+    --color-3: #09d69c;
+    --bg-light: #2b2c2f;
+    --main-to-dark-color: var(--main-color);
+    --dark-to-main-color: var(--bg-light);
+    --shadow-black-100: 0 5px 15px rgba(0,0,0,0.1);
+    --shadow-black-300: 0 5px 15px rgba(0,0,0,0.3);
+    --black-900: #000;
+    --black-400: #555555;
+    --black-100: #f7f7f7;
+    --black-000: #ffffff;
+    --black-alpha-100: rgba(0,0,0,0.05);
+}
+body.dark{
+    background-color: var(--bg-light);
+    --black-100: var(--bg-light);
+    --black-000: var(--bg-light);
+    --main-to-dark-color: var(--bg-light);
+    --dark-to-main-color: var(--main-color);
+    --shadow-black-100: var(--shadow-black-300);
+    --black-alpha-100: rgba(255,255,255,0.05);
+    --black-900: #ffffff;
+    --black-400: #dadada;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #fff;
+}
+::before, ::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+img{
+    vertical-align: middle;
+    max-width: 100%;
+}
+.container{
+    margin: auto;  
+}
+.align-items-center{
+    align-items: center;
+}
+.effect-wrap .effect{
+    position: absolute;
+    z-index: 1;
+}
+.effect-wrap .effect-1{
+    left: 38%;
+    top: 49%;
+    z-index: -1;
+    font-size: 80px;
+    color: var(--color-2);
+    animation: bounceTop_01 3s linear infinite;
+}
+.effect-wrap .effect-2{
+    right: 0%;
+    top: 40%;
+    font-size: 150px;
+    color: var(--color-2);
+    animation: spin_01 7s linear infinite;
+}
+.effect-wrap .effect-3{
+    left: -10%;
+    z-index: -1;
+    bottom: 20%;
+    font-size: 250px;
+    color: var(--color-1);
+    animation: bounceTop_01 5s linear infinite;
+}
+.effect-wrap .effect-4{
+    left: 35%;
+    bottom: 90%;
+    font-size: 200px;
+    color: var(--color-3);
+    animation: spin_01 5s linear infinite;
+}
+@keyframes pulse_01{
+    0%{
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70%{
+        transform: scale(1);
+        box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+    }
+    100%{
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+}
+@keyframes spin_01{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes bounceTop_01{
+    0%,100%{
+        transform: translateY(-30px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+}
+
+/* ---------------
+Navbar
+---------------*/
+.navbar{
+    background-color: transparent;
+    padding: 3px 0;
+    transition: all 0.5s ease;
+}
+.navbar .navbar-shrink{
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--main-color);
+}
+.navbar > .container{
+    padding: 5px 0;
+}
+
+.navbar .nav-item{
+    margin-left: 10px;
+}
+.navbar .nav-item .nav-link{
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px;
+    font-weight: 400;
+    position: relative;
+    text-transform: capitalize;
+}
+.navbar .nav-item .nav-link::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: all 0.5s ease;
+    transform: scale(0); 
+}
+.navbar .nav-item .nav-link.active::before,
+.navbar .nav-item .nav-link:hover::before{
+    transform: scale(1);
+}
+.nav-item a:hover{
+    color: #000 !important;
+}
+/* ---------------
+Home 
+---------------*/
+.home{
+    min-height: 100vh;
+    padding: 50px 0;
+    background-color: var(--main-to-dark-color);
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+.home-text h1{
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--black-100);
+    /* margin: 0 0 20px; */
+}
+.home-text h2{
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-000);
+    margin: 0 0 20px;
+}
+.home-text p{
+    font-size: 26px;
+    color: var(--black-400);
+    margin: 0;
+    font-weight: 300;
+}
+.home-img img{
+    width: 80%;
+    box-shadow: var(--shadow-black-100);
+    border-radius: 50%;
+}
+.img-pulse{
+    animation: pulse_01 2s ease infinite;
+}
+.home-img{
+    position: relative;
+}
+.home-btn a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 40px;
+    margin: 10px 20px;
+    color: var(--color-3);
+    font-size: 24px;
+    overflow : hidden;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.25s;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+a:hover{
+    background-color: var(--color-3);
+    color: var(--black-900);
+    box-shadow: 0 0 5px var(--color-3),
+                0 0 25px var(--color-3),
+                0 0 50px var(--color-3),
+                0 0 200px var(--color-3);
+}
+.home-btn a span{
+    position: absolute;
+    display: block;
+}
+.home-btn a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,var(--color-3));
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1
+{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+.home-btn a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,var(--color-3));
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+.home-btn a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,var(--color-3));
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+.home-btn a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,var(--color-3));
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+/* ---------------
+Toggle Themei light to dart
+---------------*/
+.toggle-theme{
+    position: fixed;
+    right: 0;
+    top: calc(20% - 20px);
+    height: 40px;
+    width: 40px;
+    background-color: var(--dark-to-main-color);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: var(--shadow-black-300);
+    z-index: 1200;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+.toggle-theme i{
+    line-height: 40px;
+}
+
+/* ---------------
+Responsive
+---------------*/
+@media(max-width: 991px){
+    .effect-wrap .effect-1{
+        display: none!important;
+    }
+    .effect-wrap .effect-2{
+        font-size: 70px;
+        z-index: inherit;
+        animation: bounceTop_01 20s linear infinite;
+    }
+    .effect-wrap .effect-3{
+        left: -30%;
+        z-index: -1;
+        bottom: 40%;
+        font-size: 150px;
+        animation: bounceTop_01 5s linear infinite;
+    }
+    .effect-wrap .effect-4{
+        left: 35%;
+        bottom: 90%;
+        font-size: 200px;
+        animation: spin_01 20s linear infinite;
+    }
+    .home-text h1{
+        font-size: 26px;
+    }
+    .home-text h2{
+        font-size: 22px;
+    }
+    .home-btn a{
+        padding: 10px 20px;
+        margin: 5px 10px;
+        font-size: 16px;
+    }
+}
